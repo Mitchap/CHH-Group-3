@@ -3,7 +3,7 @@
   @include('admin.include.navbar_announcement')
   <nav class="navbar py-3" style="background-color: #D6D6D6;">
     <div class="container-fluid">
-      <a class="navbar-brand"></a>
+      <span></span>
       <form class="d-flex" role="search" action="{{ route('search') }}" method="GET">
         <input class="form-control me-2" type="search" name="query" placeholder="Search file name" aria-label="Search" style="border: 1px solid #464545;">
         <button class="btn btn-info" type="submit">Search</button>
@@ -45,7 +45,6 @@
         <td>
           
            <a href="{{ url('/download', $item->file) }}" class="btn btn-success me-3">Download</a>
-
            <a href="{{ route('delete', $item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this file?')">Delete</a>
         </td> 
      </tr>

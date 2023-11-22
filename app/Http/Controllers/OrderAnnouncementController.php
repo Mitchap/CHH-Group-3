@@ -23,9 +23,7 @@ class OrderAnnouncementController extends Controller
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-
-
+            $fileName =  $file->getClientOriginalName();
             $file->storeAs('order', $fileName);
             $data->file = $fileName;
         }

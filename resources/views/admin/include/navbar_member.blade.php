@@ -18,7 +18,7 @@
         <div class="offset-1">
         <ul class="hstack gap-3 navbar-nav fs-3">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="/dashboard" >
+            <a class="nav-link " aria-current="page" href="/event" >
                 <i class="fa-regular fa-calendar-days" ></i> EVENT</a>
           </li>
           <li class="nav-item">

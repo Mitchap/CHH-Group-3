@@ -23,16 +23,16 @@ class AnnouncementController extends Controller
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-
+            $fileName = $file->getClientOriginalName();
 
             $file->storeAs('memo', $fileName);
             $data->file = $fileName;
+            
         }
 
         $data->save();
 
-        return redirect()->back()->with('success', 'File uploaded successfully, Rosebel!');
+        return redirect()->back()->with('success', 'File uploaded successfully!');
     }
 
 

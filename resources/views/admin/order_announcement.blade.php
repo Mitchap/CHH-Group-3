@@ -43,9 +43,11 @@
             <td>{{ $item->created_at->format('Y-m-d') }}</td>
             <td>
                <a href="{{ url('/download_order', $item->file) }}" class="btn btn-success me-3">Download</a>
-               <a href="{{ route('delete_order', $item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this file?')">Delete</a>
+               <a href="{{ route('delete_order', $item->id) }}" class="btn btn-danger" 
+                onclick="return confirm('Are you sure you want to delete this file?')">Delete</a>
             </td> 
          </tr>
+         
          
     
           @endforeach

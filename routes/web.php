@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\ResoAnnouncementController;
 use App\Http\Controllers\OrderAnnouncementController;
+use App\Http\Controllers\MemberSideController;
+use App\Http\Controllers\MemberSideResoController;
+use App\Http\Controllers\MemberSideOrderController;
 use Illuminate\Support\Facades\Route;
 
 use function Laravel\Prompts\search;
@@ -24,9 +26,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('admin.dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/event', function () {return view('admin.event');
+})->middleware(['auth', 'verified'])->name('event');
 
 
 // Route::get('/reso_announcement', function () {
@@ -70,9 +71,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/upload', [AnnouncementController::class, 'showForm'])->name('upload.form');
     Route::post('/upload', [AnnouncementController::class, 'uploadFile'])->name('upload');
-
     Route::get('/download/{file}', [AnnouncementController::class, 'download']);
-    
     Route::get('/delete/{id}', [AnnouncementController::class, 'delete'])->name('delete');
     Route::get('/search', [AnnouncementController::class, 'search'])->name('search');
 });
@@ -91,3 +90,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/search_reso', [ResoAnnouncementController::class, 'search'])->name('search_reso');
 });
 require __DIR__.'/auth.php';
+
+
+
+Route::get('/events', [MemberSideController::class, 'event']);
+Route::get('/memo_announcements', [MemberSideController::class, 'memo_announcements']);
+Route::get('/reso_announcements', [MemberSideResoController::class, 'reso_announcements']);
+Route::get('/order_announcements', [MemberSideOrderController::class, 'order_announcements']);
+Route::get('/proposal', [MemberSideController::class, 'proposal']);

@@ -18,33 +18,20 @@
         <div class="offset-1">
         <ul class="hstack gap-3 navbar-nav fs-3">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/event" style="border-bottom: 5px solid #366DDA; color: #000000;">
+            <a class="nav-link"  href="/events">
                 <i class="fa-regular fa-calendar-days" ></i> EVENT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/memo_announcement"><i class="fa-regular fa-bell"></i> ANNOUNCEMENTS</a>
+            <a class="nav-link" href="/memo_announcements" aria-current="page" style="border-bottom: 5px solid #366DDA; color: #000000;"><i class="fa-regular fa-bell"></i> ANNOUNCEMENTS</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="/member"><i class="fa-regular fa-user"></i> MEMBERS</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/report"><i class="fa-solid fa-chart-simple"></i> REPORTS</a>
+            <a class="nav-link" href="/proposal"><i class="fa-regular fa-user"></i> PROPOSAL</a>
           </li>
         </ul>
       </div>
         <ul class="hstack gap-3 navbar-nav fs-3 offset-4">
           <li  class="nav-item">
-            <form method="POST" action="{{ route('logout') }}">
-              @csrf
-
-              <x-responsive-nav-link :href="route('logout')"
-                      onclick="event.preventDefault();
-                                  this.closest('form').submit();">
-                  <i class="fa-solid fa-arrow-right-from-bracket text-black"> LOGOUT</i>
-              </x-responsive-nav-link>
-          </form>
-            <a class="nav-link text-end" href="/"></a>
-          </li>
+            <a class="nav-link" href="/register"> REGISTER</a>
         </ul>
         
     </div>

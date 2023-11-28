@@ -6,7 +6,7 @@
 
   <nav class="navbar bg-body-secondary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Membersss</a>
+      <a class="navbar-brand" href="#">Members</a>
     </div>
   </nav>
 
@@ -66,48 +66,43 @@
 
         <div class="col-md-6 pb-3">
             <label>First Name:</label><br>
-            <input class="col-12" type="text" name="first_name" placeholder="First Name" value="{{ $member -> first_name }}"/>
+            <input class="col-12" type="text" name="first_name" placeholder="First Name" value="{{ $member -> first_name }}" required/>
         </div>
 
         <div class="col-md-6 pb-3">
           <label>Email:</label><br>
-          <input class="col-12" type="text" name="email" placeholder="Email" value="{{ $member -> email }}"/>
+          <input class="col-12" type="text" name="email" placeholder="Email" value="{{ $member -> email }}" required/>
         </div>
 
         <div class="col-md-6 pb-3">
             <label>Last Name:</label><br>
-            <input class="col-12"type="text" name="last_name" placeholder="Last Name" value="{{ $member -> last_name }}"/>
+            <input class="col-12"type="text" name="last_name" placeholder="Last Name" value="{{ $member -> last_name }}" required/>
         </div>
 
         <div class="col-md-6 pb-3">
           <label>Date of Birth:</label><br>
-          <input class="col-12"type="date" name="date_of_birth" placeholder="Date of Birth" value="{{ $member -> date_of_birth }}"/>
+          <input class="col-12"type="date" name="date_of_birth" placeholder="Date of Birth" value="{{ $member -> date_of_birth }}" required/>
       </div>
 
         <div class="col-md-6 pb-3">
             <label>Age:</label><br>
-            <input class="col-12" type="number" name="age" placeholder="Age" value="{{ $member -> age }}"/>
+            <input class="col-12" type="number" name="age" placeholder="Age" value="{{ $member -> age }}" required/>
         </div>
 
         <div class="col-md-6 pb-3">
           <label>Address:</label><br>
-          <input class="col-12" type="text" name="address" placeholder="Address" value="{{ $member -> address }}"/>
+          <input class="col-12" type="text" name="address" placeholder="Address" value="{{ $member -> address }}" required/>
         </div>
 
         <div class="col-md-6 pb-3">
           <label>Gender:</label><br>
-          <input class="col-12" type="text" name="gender" placeholder="Gender" value="{{ $member -> gender }}"/>
+          <input class="col-12" type="text" name="gender" placeholder="Gender" value="{{ $member -> gender }}" required/>
         </div>  
 
         <div class="col-md-6 pb-3">
             <label>Mobile:</label><br>
-            <input class="col-12" type="tel" name="mobile" placeholder="910-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{ $member -> mobile }}"/>
+            <input class="col-12" type="tel" name="mobile" placeholder="910-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{ $member -> mobile }}" required/>
         </div>        
-
-        <div class="col-md-6 pb-3">
-            <label></label><br>
-            <input class="col-12" type="text" name="annual_fee" placeholder="Annual Fee" value="{{ $member -> annual_fee }}" hidden/>
-        </div>       
         
             </div>
           </div>

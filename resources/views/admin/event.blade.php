@@ -1,6 +1,4 @@
-{{-- <x-app-layout>
-</x-app-layout> --}}
-    @extends('admin.layout.layout')
+ @extends('admin.layout.layout')
     @section('content')
       @include('admin.include.navbar_event')
      

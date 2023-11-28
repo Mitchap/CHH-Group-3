@@ -1,8 +1,8 @@
-
+  
 <nav class="navbar navbar-expand-lg custom">
     <div class="container-fluid">
         <a class="navbar-brand row">
-        <div class="col-2 offset-1"><img src="logo.png" class="img-fluid" alt="logo"></div>
+          <div class="col-2 offset-1"><img src="{{ asset('logo.png') }}" class="img-fluid" alt="logo"></div>
         <div class="col-1 fs-4 my-auto" style="color: #FFFFFF;">Community<br>Helping Hands</div>
     </a>
       
@@ -27,9 +27,9 @@
           <li class="nav-item" style="border-bottom: 5px solid #366DDA;">
             <a class="nav-link" href="/member" style="color:#000000"><i class="fa-regular fa-user"></i> MEMBERS</a>
           </li>
-          <li class="nav-item ">
+          {{-- <li class="nav-item ">
             <a class="nav-link" href="/report"><i class="fa-solid fa-chart-simple"></i> REPORTS</a>
-          </li>
+          </li> --}}
         </ul>
       </div>
       <ul class="hstack gap-3 navbar-nav fs-3 offset-4">

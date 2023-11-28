@@ -1,21 +1,12 @@
 @extends('admin.layout.layout')
 @section('content')
   @include('admin.include.navbar_announcement')
-  <nav class="navbar py-3" style="background-color: #D6D6D6;">
-    <div class="container-fluid">
-      <span></span>
-      <form class="d-flex" role="search" action="{{ route('search') }}" method="GET">
-        <input class="form-control me-2" type="search" name="query" placeholder="Search file name" aria-label="Search" style="border: 1px solid #464545;">
-        <button class="btn btn-info" type="submit">Search</button>
-    </form>
-    
-    </div>
-    
-  </nav>
-  <div class="d-flex justify-content-center">
+  <div class="navbar pt-5 pb-4" style="background-color: #D6D6D6;">
+  </div>
+<div class="d-flex justify-content-center">
     <ul class="hstack gap-5 navbar-nav fs-3">
       <li class="nav-item">
-        <a class="nav-link active" href="/memo_announcement" aria-current="page">Memo</a>
+        <a class="nav-link actives" href="/memo_announcement" aria-current="page">Memo</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/reso_announcement">Resolutions</a>
@@ -25,37 +16,33 @@
       </li>
     </ul>
   </div>
+
 <div class="container">
-  <table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">File Name</th>
-      <th scope="col">Date Announced</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <br><br><br>
-  <tbody>
-
-      @foreach ($data as $item)
-          
+  <table id="membertable" class="table table-striped" style="width:100%">
+    <thead>
       <tr>
-        <td><i class="fa-solid fa-file-pdf"> </i>{{ $item->file }}</td>
-        <td>{{ $item->created_at->format('Y-m-d') }}</td>
-        <td>
-          
-           <a href="{{ url('/download', $item->file) }}" class="btn btn-success me-3">Download</a>
-           <a href="{{ route('delete', $item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this file?')">Delete</a>
-        </td> 
-     </tr>
-     
-
-      @endforeach
-  </tbody>
-</table>
-</div>
-
-
+        <th scope="col">File Name</th>
+        <th scope="col">Date Announced</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  
+        @foreach ($data as $item)
+            
+        <tr>
+          <td><i class="fa-solid fa-file-pdf"> </i>{{ $item->file }}</td>
+          <td>{{ $item->created_at->format('Y-m-d') }}</td>
+          <td>
+             <a href="{{ url('/download', $item->file) }}" class="btn btn-success me-3">Download</a>
+             <a href="{{ route('delete', $item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this file?')">Delete</a>
+          </td> 
+       </tr>
+       
+        @endforeach
+      </tbody>
+      </table>
+  </div>
 <!-- Button to trigger the upload modal -->
 <div class="position-fixed bottom-0 end-0 mx-5 my-5 ">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal"><i class="fa-solid fa-plus"></i> Add New
@@ -82,7 +69,6 @@
                       <button type="submit" class="btn btn-primary">Upload</button>
                   </div>
               </form>
-
           </div>
       </div>
   </div>
@@ -162,11 +148,18 @@
 @endif
 
 <style>
-  .active{
+  .actives{
     border-bottom: 5px solid #366DDA;
   }
   .nav-link:hover{
     color: #366DDA !important;
   }
 </style>
+                
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>
+    let table = new DataTable('#membertable');
+  </script>
 @endsection 

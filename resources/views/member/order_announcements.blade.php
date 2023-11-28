@@ -1,40 +1,31 @@
 @extends('admin.layout.layout')
 @section('content')
   @include('member.include.navbar_announcement')
-  <nav class="navbar py-3" style="background-color: #D6D6D6;">
-    <div class="container-fluid">
-      <a class="navbar-brand"></a>
-      <form class="d-flex" role="search" action="{{ route('search_order') }}" method="GET">
-        <input class="form-control me-2" type="search" name="query" placeholder="Search file name" aria-label="Search" style="border: 1px solid #464545;">
-        <button class="btn btn-info" type="submit">Search</button>
-    </form>
-    </div>
-  </nav>
-  
+  <div class="navbar pt-5 pb-4" style="background-color: #D6D6D6;">
+  </div>
   <div class="d-flex justify-content-center">
     <ul class="hstack gap-5 navbar-nav fs-3">
       <li class="nav-item">
-        <a class="nav-link " href="/memo_announcements" >Memo</a>
+        <a class="nav-link" href="/memo_announcements" aria-current="page">Memo</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/reso_announcements">Resolutions</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link active" href="/order_announcements" aria-current="page">Executive Order</a>
+        <a class="nav-link actives" href="/order_announcements">Executive Order</a>
       </li>
     </ul>
   </div>
-    <div class="container">
-      <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">File Name</th>
-          <th scope="col">Date Announced</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <br><br><br>
-      <tbody>
+  <div class="container">
+    <table id="orderTable" class="table table-striped" style="width:100%">  
+  <thead>
+    <tr>
+      <th scope="col">File Name</th>
+      <th scope="col">Date Announced</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
     
           @foreach ($data as $item)
               
@@ -46,19 +37,26 @@
             </td> 
          </tr>
          
-         
-    
-          @endforeach
-      </tbody>
-    </table>
-    </div>
-    
-    <style>
-      .active{
-        border-bottom: 5px solid #366DDA;
-      }
-      .nav-link:hover{
-        color: #366DDA !important;
-      }
-    </style>
-    @endsection 
+         @endforeach
+        </tbody>
+      </table>
+      </div>
+      
+      <style>
+        .actives{
+          border-bottom: 5px solid #366DDA;
+        }
+        .nav-link:hover{
+          color: #366DDA !important;
+        }
+      </style>
+                      
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+        <script>
+          $(document).ready(function() {
+            $('#orderTable').DataTable();
+          });
+        </script>
+      @endsection 

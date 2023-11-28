@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AnnouncementMail;
 use App\Models\OrderAnnouncement;
 
 class OrderAnnouncementController extends Controller
@@ -24,8 +25,16 @@ class OrderAnnouncementController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $fileName =  $file->getClientOriginalName();
+
             $file->storeAs('order', $fileName);
             $data->file = $fileName;
+
+           // Send email notification
+           $userEmail = 'mitchbarcenilla4@gmail.com'; // Change this to the recipient's email
+           Mail::to($userEmail)->send(new AnnouncementMail());
+
+           // You can pass additional data to your mail template if needed
+           // Mail::to($userEmail)->send(new AnnouncementMail($data));
         }
 
         $data->save();
@@ -63,20 +72,6 @@ class OrderAnnouncementController extends Controller
     }
 
     return redirect()->back()->with('error', 'File not found!');
-    }
-
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-    
-        if (empty($query)) {
-            $data = OrderAnnouncement::all()->reverse();
-        } else {
-            // Filter search query based on column name. in this case "file" is column name
-            $data = OrderAnnouncement::where('file', 'like', '%' . $query . '%')->get();
-        }
-    
-        return view('admin.order_announcement', ['data' => $data]);
     }
     
 }

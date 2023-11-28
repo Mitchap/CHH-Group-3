@@ -28,9 +28,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/member"><i class="fa-regular fa-user"></i> MEMBERS</a>
           </li>
-          <li class="nav-item ">
+          {{-- <li class="nav-item ">
             <a class="nav-link" href="/report"><i class="fa-solid fa-chart-simple"></i> REPORTS</a>
-          </li>
+          </li> --}}
         </ul>
       </div>
       <ul class="hstack gap-3 navbar-nav fs-3 offset-4">

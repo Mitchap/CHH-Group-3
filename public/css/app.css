@@ -1,0 +1,27 @@
+body{
+    /* overflow: hidden; */
+    height: 125vh;
+    width: 100vw;
+}
+
+dialog::backdrop{
+    background: rgba(0,0,0,.26);
+}
+
+dialog{
+    position: relative;
+    height: 500px;
+    width: 700px;
+}
+
+.close{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+
+.submit_event_button{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}

@@ -31,7 +31,7 @@
       </div>
         <ul class="hstack gap-3 navbar-nav fs-3 offset-4">
           <li  class="nav-item">
-            <a class="nav-link" href="/register"> REGISTER</a>
+            <a class="nav-link" href="/registration"> REGISTER</a>
         </ul>
         
     </div>
